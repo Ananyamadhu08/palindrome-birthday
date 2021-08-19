@@ -9,6 +9,7 @@ import { React, useState } from "react";
 // problem with this is that it will not slow your computer, explore setTimeout in JS to produce an artificial delay.
 
 let date;
+let newoutput = "";
 
 export default function App() {
   const [outputDiv, setOutputDiv] = useState("");
@@ -25,7 +26,57 @@ export default function App() {
   }
 
   function checkPalindrome() {
-    // do something
+    // before checking for palindrome we have to generate the dates in different formats
+    const dateArray = date.split("-"); //returns an array
+    // console.log("dateArray", dateArray);
+    // use the index values and get the assign the dates
+    const inputYear = dateArray[0];
+    const inputMonth = dateArray[1];
+    const inputDate = dateArray[2];
+
+    // we need to check it in different formats then check if its a palindrome
+    let setFlag = checkAllFormatsOfDate(inputYear, inputMonth, inputDate); //function to check all date formats
+
+    if (setFlag) {
+      newoutput = `Whoa!!! Your Birthday In Format ${setFlag} is palindrome`;
+    } else {
+      newoutput = `Awww! Your Birthdate Is Not Palindrome`;
+    }
+    setOutputDiv(<p>{newoutput}</p>);
+  }
+
+  function checkAllFormatsOfDate(yyyy, mm, dd) {
+    // check all the combinations
+    const dateFormat1 = yyyy + mm + dd; //yyyy-mm-dd format string
+    const dateFormat2 = dd + mm + yyyy; //dd-mm-yyyy format string
+    const dateFormat3 = mm + dd + yyyy.substring(2); //mm-dd-yy format string
+    const dateFormat4 = Number(mm) + dd + yyyy; //m-dd-yyyy
+
+    // now we need to check for palindrome for each of these formats
+    if (isPalindrome(dateFormat1)) {
+      return `${yyyy} - ${mm} - ${dd}`;
+    } else if (isPalindrome(dateFormat2)) {
+      return `${dd} - ${mm} - ${yyyy}`;
+    } else if (isPalindrome(dateFormat3)) {
+      return `${mm} - ${dd} - ${yyyy.substring(2)}`;
+    } else if (isPalindrome(dateFormat4)) {
+      return `${Number(mm)} - ${dd} - ${yyyy}`;
+    } else {
+      return null;
+    }
+  }
+
+  function isPalindrome(str) {
+    var len = str.length;
+    var mid = Math.floor(len / 2);
+
+    for (var i = 0; i < mid; i++) {
+      if (str[i] !== str[len - 1 - i]) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   return (
