@@ -18,6 +18,10 @@ const highlightTheme = ["#000000", "#52057B"];
 
 let setthemeFlag = 0;
 
+//for next date
+
+const datesInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
 export default function App() {
   const [outputDiv, setOutputDiv] = useState("");
   const [theme, setTheme] = useState(darkTheme);
@@ -49,7 +53,8 @@ export default function App() {
     if (setFlag) {
       newoutput = `Whoa!!! Your Birthday In Format ${setFlag} is palindrome`;
     } else {
-      newoutput = `Awww! Your Birthdate Is Not Palindrome`;
+      let [nextdate, diff] = findNextDate(inputDate, inputMonth, inputYear);
+      newoutput = `Awww! Your birthdate is not palindrome. Nearest palindrome date is ${nextdate} You missed it by ${diff} days.`;
     }
     setOutputDiv(<p>{newoutput}</p>);
   }
@@ -86,6 +91,74 @@ export default function App() {
     }
 
     return true;
+  }
+
+  function findNextDate(date, month, year) {
+    let ddNo1 = Number(date);
+    let mmNo1 = Number(month);
+    let yyNo1 = Number(year);
+    let ddNo2 = Number(date);
+    let mmNo2 = Number(month);
+    let yyNo2 = Number(year);
+
+    for (let i = 1; i > 0; i++) {
+      //forward check
+      ddNo1 = ddNo1 + 1;
+      if (ddNo1 > Number(datesInMonth[mmNo1 - 1])) {
+        ddNo1 = 1;
+        mmNo1 = mmNo1 + 1;
+        if (mmNo1 > 12) {
+          mmNo1 = 1;
+          yyNo1 = yyNo1 + 1;
+        }
+      }
+      let yyString = yyNo1.toString();
+      let mmString = mmNo1.toString();
+      let ddString = ddNo1.toString();
+      if (mmString.length == 1) {
+        mmString = "0" + mmString;
+      }
+      if (ddString.length == 1) {
+        ddString = "0" + ddString;
+      }
+      let setFlagNextDate = checkAllFormatsOfDate(yyString, mmString, ddString);
+      if (setFlagNextDate) {
+        return [`${setFlagNextDate}`, i];
+      }
+
+      //backward check
+      if (yyNo2 > 1) {
+        ddNo2 = ddNo2 - 1;
+        if (ddNo2 < 1) {
+          mmNo2 = mmNo2 - 1;
+          if (mmNo2 < 1) {
+            mmNo2 = 12;
+            yyNo2 = yyNo2 - 1;
+            if (yyNo2 < 1) {
+              break;
+            }
+            ddNo2 = datesInMonth[mmNo2 - 1];
+          }
+        }
+        let yyString = yyNo2.toString();
+        let mmString = mmNo2.toString();
+        let ddString = ddNo2.toString();
+        if (mmString.length == 1) {
+          mmString = "0" + mmString;
+        }
+        if (ddString.length == 1) {
+          ddString = "0" + ddString;
+        }
+        let setFlagNextDate = checkAllFormatsOfDate(
+          yyString,
+          mmString,
+          ddString
+        );
+        if (setFlagNextDate) {
+          return [`${setFlagNextDate}`, i];
+        }
+      }
+    }
   }
 
   return (
