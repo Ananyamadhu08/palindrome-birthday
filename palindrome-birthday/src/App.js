@@ -16,10 +16,12 @@ const darkTheme = ["#000000", "white"];
 const lightTheme = ["#52057b", "white"];
 const highlightTheme = ["#000000", "#52057B"];
 
-let setThemeFlag = 0;
+let setthemeFlag = 0;
 
 export default function App() {
   const [outputDiv, setOutputDiv] = useState("");
+  const [theme, setTheme] = useState(darkTheme);
+  const [highLightTheme, setHighLightTheme] = useState(highlightTheme[1]);
 
   function inputDateHandler(e) {
     e.preventDefault();
@@ -88,12 +90,58 @@ export default function App() {
 
   return (
     <div className="App">
-      <section id="mainSection">
-        {/* header the theme background */}
+      {/* header the theme background */}
 
-        <header
-          style={{ backgroundolor: `${theme[0]}`, color: `${theme[1]}` }}
-        ></header>
+      <header style={{ backgroundColor: `${theme[0]}`, color: `${theme[1]}` }}>
+        <div className="Nav">
+          <div className="leftCorner">
+            {/* left corner goes here */}
+            <ul className="list">
+              <li>
+                <label className="switch">
+                  <input
+                    onChange={() => {
+                      // using flag to set theme
+                      setthemeFlag = setthemeFlag + 1;
+                      if (setthemeFlag % 2 === 0) {
+                        setTheme(darkTheme);
+                        // setHighLightTheme(highLightTheme[1]);
+                      } else {
+                        setTheme(lightTheme);
+                        // setHighLightTheme(highLightTheme[0]);
+                      }
+                    }}
+                    type="checkbox"
+                  />
+                  <span className="slider round"></span>
+                </label>
+              </li>
+              <li>Click To Change Theme</li>
+            </ul>
+          </div>
+
+          <div className="RightCorner">
+            {/* rightcorner goes here */}
+            <a target="_blank" href="htt" rel="roreferrer">
+              Github Repo
+            </a>
+          </div>
+        </div>
+        <section className="hero">
+          <div className="text-section">
+            <h1>Check Out If Your Birthday Is Palindrome</h1>
+            <p>
+              A Palindrome Is A Word / Number Which Reads The Same Backwards As
+              Forwards{" "}
+            </p>
+            <a href="#mainSection" className="linkPrimary">
+              Click Here
+            </a>
+          </div>
+        </section>
+      </header>
+
+      <section id="mainSection">
         <h2>
           Enter Your Birthdate And We Will Tell You If Your Birthdate Is A
           Palindrome
