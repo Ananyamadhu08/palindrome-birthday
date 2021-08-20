@@ -11,6 +11,13 @@ import { React, useState } from "react";
 let date;
 let newoutput = "";
 
+// define var for themes
+const darkTheme = ["#000000", "white"];
+const lightTheme = ["#52057b", "white"];
+const highlightTheme = ["#000000", "#52057B"];
+
+let setThemeFlag = 0;
+
 export default function App() {
   const [outputDiv, setOutputDiv] = useState("");
 
@@ -82,6 +89,11 @@ export default function App() {
   return (
     <div className="App">
       <section id="mainSection">
+        {/* header the theme background */}
+
+        <header
+          style={{ backgroundolor: `${theme[0]}`, color: `${theme[1]}` }}
+        ></header>
         <h2>
           Enter Your Birthdate And We Will Tell You If Your Birthdate Is A
           Palindrome
