@@ -77,7 +77,7 @@ header {
   height: 26px;
   width: 44px;
   display: block;
-  background-color: white;
+  /* background-color: white; */
   cursor: pointer;
 }
 
@@ -88,10 +88,114 @@ header {
   opacity: 0;
 }
 
-switch .slider {
+.switch .slider {
   position: absolute;
   top: 0;
   left: 9px;
   height: 26px;
   width: 26px;
+  background-color: var(--emcolor);
+  border-radius: 50%;
+  transition: 0.4s;
+}
+.switch .slider::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 9px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.4s;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(-18px);
+}
+.switch input:checked + .slider {
+  background-color: var(--dark-color);
+}
+
+/* links */
+
+a {
+  text-decoration: none;
+  color: white;
+}
+.linkPrimary {
+  padding: 0.5rem 2rem;
+  background-color: white;
+  border: 3px solid var(--dark-color);
+  border-radius: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--dark-color);
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.linkPrimary:hover {
+  background-color: var(--dark-color);
+  color: white;
+}
+
+/* hero section */
+
+.hero {
+  display: flex;
+  min-height: 550px;
+  flex-wrap: wrap;
+}
+
+.text-section {
+  width: 60%;
+  padding: 4rem 6rem 0;
+}
+.text-section h1 {
+  line-height: 3.6rem;
+  margin-bottom: 0rem;
+  font-size: 3.5rem;
+}
+p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+h2 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  margin-bottom: 0rem;
+}
+
+/* main section and footer */
+
+#mainSection {
+  width: 100%;
+  max-width: 600px;
+  margin: 12rem auto 8rem;
+  text-align: center;
+}
+input[type="date"] {
+  border: 3px solid var(--dark-color);
+  display: block;
+  margin: 1rem auto;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+}
+footer {
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+footer ul.list {
+  justify-content: center;
+  border-bottom: 1px solid var(--faint-color);
+}
+footer ul.list li {
+  padding: 2rem;
+}
+.footer-text {
+  display: block;
+  padding: 1rem;
+  text-align: center;
 }

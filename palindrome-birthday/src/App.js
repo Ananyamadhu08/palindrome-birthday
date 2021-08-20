@@ -172,6 +172,31 @@ export default function App() {
 
         <div>{outputDiv}</div>
       </section>
+
+      <footer style={{ backgroundColor: `${theme[0]}`, color: `${theme[1]}` }}>
+        <ul className="list">
+          <li>
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/"
+              rel="noreferrer"
+            >
+              Linked in
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://github.com/" rel="noreferrer">
+              Github
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="" rel="noreferrer">
+              Portfolio
+            </a>
+          </li>
+        </ul>
+        <div className="footer-text">© | 2021 | AnanyaMadhu</div>
+      </footer>
     </div>
   );
 }
