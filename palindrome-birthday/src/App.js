@@ -12,9 +12,9 @@ let date;
 let newoutput = "";
 
 // define var for themes
-const darkTheme = ["#000000", "white"];
-const lightTheme = ["#52057b", "white"];
-const highlightTheme = ["#000000", "#52057B"];
+const darkTheme = ["#34D399", "white"];
+const lightTheme = ["#1e3a8a", "white"];
+const highlightTheme = ["#000000", "white"];
 
 let setthemeFlag = 0;
 
