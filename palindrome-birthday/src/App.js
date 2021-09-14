@@ -251,19 +251,27 @@ export default function App() {
           <li>
             <a
               target="_blank"
-              href="https://www.linkedin.com/"
+              href="https://www.linkedin.com/in/ananya-madhu-74479b206/"
               rel="noreferrer"
             >
-              Linked in
+              Linkedin
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://github.com/" rel="noreferrer">
+            <a
+              target="_blank"
+              href="https://github.com/Ananyamadhu08"
+              rel="noreferrer"
+            >
               Github
             </a>
           </li>
           <li>
-            <a target="_blank" href="" rel="noreferrer">
+            <a
+              target="_blank"
+              href="https://ananya-madhu-portfolio.netlify.app/index.html"
+              rel="noreferrer"
+            >
               Portfolio
             </a>
           </li>
