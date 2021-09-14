@@ -14,7 +14,7 @@ let newoutput = "";
 // define var for themes
 const darkTheme = ["#34D399", "white"];
 const lightTheme = ["#1e3a8a", "white"];
-const highlightTheme = ["#000000", "white"];
+// const highlightTheme = ["#000000", "white"];
 
 let setthemeFlag = 0;
 
@@ -25,7 +25,7 @@ const datesInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 export default function App() {
   const [outputDiv, setOutputDiv] = useState("");
   const [theme, setTheme] = useState(darkTheme);
-  const [highLightTheme, setHighLightTheme] = useState(highlightTheme[1]);
+  // const [highLightTheme, setHighLightTheme] = useState(highlightTheme[1]);
 
   function inputDateHandler(e) {
     e.preventDefault();
