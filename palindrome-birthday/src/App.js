@@ -115,10 +115,10 @@ export default function App() {
       let yyString = yyNo1.toString();
       let mmString = mmNo1.toString();
       let ddString = ddNo1.toString();
-      if (mmString.length == 1) {
+      if (mmString.length === 1) {
         mmString = "0" + mmString;
       }
-      if (ddString.length == 1) {
+      if (ddString.length === 1) {
         ddString = "0" + ddString;
       }
       let setFlagNextDate = checkAllFormatsOfDate(yyString, mmString, ddString);
@@ -143,10 +143,10 @@ export default function App() {
         let yyString = yyNo2.toString();
         let mmString = mmNo2.toString();
         let ddString = ddNo2.toString();
-        if (mmString.length == 1) {
+        if (mmString.length === 1) {
           mmString = "0" + mmString;
         }
-        if (ddString.length == 1) {
+        if (ddString.length === 1) {
           ddString = "0" + ddString;
         }
         let setFlagNextDate = checkAllFormatsOfDate(
@@ -195,7 +195,11 @@ export default function App() {
 
           <div className="RightCorner">
             {/* rightcorner goes here */}
-            <a target="_blank" href="htt" rel="roreferrer">
+            <a
+              target="_blank"
+              href="https://github.com/Ananyamadhu08"
+              rel="noreferrer"
+            >
               Github Repo
             </a>
           </div>
