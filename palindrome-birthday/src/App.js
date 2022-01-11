@@ -27,7 +27,7 @@ export default function App() {
   const [theme, setTheme] = useState(darkTheme);
   // const [highLightTheme, setHighLightTheme] = useState(highlightTheme[1]);
 
-  function inputDateHandler(e) {
+  const inputDateHandler = (e) => {
     e.preventDefault();
 
     if (date) {
@@ -36,9 +36,9 @@ export default function App() {
     } else {
       setOutputDiv(<p>Please Fill Date Field</p>);
     }
-  }
+  };
 
-  function checkPalindrome() {
+  const checkPalindrome = () => {
     // before checking for palindrome we have to generate the dates in different formats
     const dateArray = date.split("-"); //returns an array
     // console.log("dateArray", dateArray);
@@ -57,9 +57,9 @@ export default function App() {
       newoutput = `Awww! Your birthdate is not palindrome. Nearest palindrome date is ${nextdate} You missed it by ${diff} days.`;
     }
     setOutputDiv(<p>{newoutput}</p>);
-  }
+  };
 
-  function checkAllFormatsOfDate(yyyy, mm, dd) {
+  const checkAllFormatsOfDate = (yyyy, mm, dd) => {
     // check all the combinations
     const dateFormat1 = yyyy + mm + dd; //yyyy-mm-dd format string
     const dateFormat2 = dd + mm + yyyy; //dd-mm-yyyy format string
@@ -78,9 +78,9 @@ export default function App() {
     } else {
       return null;
     }
-  }
+  };
 
-  function isPalindrome(str) {
+  const isPalindrome = (str) => {
     var len = str.length;
     var mid = Math.floor(len / 2);
 
@@ -91,9 +91,9 @@ export default function App() {
     }
 
     return true;
-  }
+  };
 
-  function findNextDate(date, month, year) {
+  const findNextDate = (date, month, year) => {
     let ddNo1 = Number(date);
     let mmNo1 = Number(month);
     let yyNo1 = Number(year);
@@ -159,7 +159,7 @@ export default function App() {
         }
       }
     }
-  }
+  };
 
   return (
     <div className="App">
